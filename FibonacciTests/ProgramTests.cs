@@ -21,10 +21,22 @@ namespace Fibonacci.Tests
         [TestMethod()]
         public void TestFibonacci()
         {
-            Assert.AreEqual(0, Fib(0));
-            // テストを通すにはいくつか方法がある。
-            // ここでは0を特別扱いするようにしてみよう。
-            Assert.AreEqual(1, Fib(1));
+            //Assert.AreEqual(0, Fib(0));
+            //Assert.AreEqual(1, Fib(1));
+
+            // テストケース内の重複が気になり始めた。
+            // 新しいテストを足したらさらにひどくなるだろう。
+            // 入力値と期待値の組でテストを回すようにする。
+            Dictionary<int, int> cases = new Dictionary<int, int>()
+            {
+                {0, 0},
+                {1, 1},
+            };
+
+            foreach (var pair in cases)
+            {
+                Assert.AreEqual(pair.Value, Fib(pair.Key));
+            }
         }
     }
 }
