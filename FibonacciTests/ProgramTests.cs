@@ -15,13 +15,12 @@ namespace Fibonacci.Tests
             {
                 return 0;
             }
-            if(n <= 2)
+            if(n == 1)
             {
                 return 1;
             }
-            //return 1 + 1;   // 一般化を始める。さきほど 2 と書いたのは、本当は1 + 1の結果だ。
-            //return Fib(n - 1) + 1;        // 最初の 1 は、Fib(n - 1)の結果だ。
-            return Fib(n - 1) + Fib(n - 2); // 2番目の 1 はFib(n - 2)の結果だ。
+
+            return Fib(n - 1) + Fib(n - 2);
         }
 
         [TestMethod()]
@@ -33,7 +32,7 @@ namespace Fibonacci.Tests
                 {0, 0},
                 {1, 1},
                 {2, 1}, 
-                {3, 2}, 
+                {3, 2},
             };
 
             foreach (var pair in cases)
