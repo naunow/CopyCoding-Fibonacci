@@ -15,14 +15,16 @@ namespace Fibonacci.Tests
             {
                 return 0;
             }
-            return 1;
+            if(n <= 2)
+            {
+                return 1;
+            }
+            return 2;
         }
 
         [TestMethod()]
         public void TestFibonacci()
         {
-            //Assert.AreEqual(0, Fib(0));
-            //Assert.AreEqual(1, Fib(1));
 
             // テストケース内の重複が気になり始めた。
             // 新しいテストを足したらさらにひどくなるだろう。
@@ -31,6 +33,8 @@ namespace Fibonacci.Tests
             {
                 {0, 0},
                 {1, 1},
+                {2, 1}, // テストは以外にも通ってしまった。
+                {3, 2}, // ここでテストが失敗する。小さい値を特別扱いする戦略で修正する。
             };
 
             foreach (var pair in cases)
