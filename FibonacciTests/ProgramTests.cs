@@ -11,13 +11,20 @@ namespace Fibonacci.Tests
     {
         public int Fib(int n)
         {
-            return 0;
+            if (n == 0)
+            {
+                return 0;
+            }
+            return 1;
         }
 
         [TestMethod()]
         public void TestFibonacci()
         {
             Assert.AreEqual(0, Fib(0));
+            // テストを通すにはいくつか方法がある。
+            // ここでは0を特別扱いするようにしてみよう。
+            Assert.AreEqual(1, Fib(1));
         }
     }
 }
